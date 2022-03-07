@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => "https://betterlearnn.herokuapp.com/public/",
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
