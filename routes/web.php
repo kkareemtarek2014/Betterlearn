@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\CourseController;
 use  App\Http\Controllers\cartcontoller;
 use  App\Http\Controllers\OrderController;
+use  Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,7 @@ Route::get('/cart/destroy/{itemid}' ,[cartcontoller::class , 'destroy'])-> name(
 Route::get('/ContiueCheckout',[OrderController::class,'addData'])->name('store');
 Route::get('/destroy',[cartcontoller::class,'delete']);
 Route::view('/Thankyou' ,'Thankyou')-> name('Thankyou');
+Route::get('/migrate',function(){
+    Artisan::call('migrate');
+
+});
