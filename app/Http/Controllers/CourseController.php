@@ -22,7 +22,7 @@ class CourseController extends Controller
         $course -> Disc = "The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one! " ;
         $course -> actor = "kareem";
         $course -> featured = 1;
-        $course -> cat = "web";
+        $course -> cat = "website";
         $course -> price = 150;
         $course -> image = "assets\img\course5.jpg";
         $course -> actor_image = "assets\img\trainers\trainer-2.jpg";
