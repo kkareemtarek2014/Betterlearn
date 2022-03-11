@@ -19,8 +19,8 @@ class CourseController extends Controller
     {
         $course = new course();
         $course -> name = "JavaScript";
-        $course -> Disc = "fwefewfewfwwefefewweewf " ;
-        $course -> actor = "Peter";
+        $course -> Disc = "The modern JavaScript course for everyone! Master JavaScript with projects, challenges and theory. Many courses in one! " ;
+        $course -> actor = "kareem";
         $course -> featured = 1;
         $course -> cat = "web";
         $course -> price = 150;
