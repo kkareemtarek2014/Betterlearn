@@ -8,7 +8,6 @@ use Cart;
 use App\Http\Requests\StorecourseRequest;
 use App\Http\Requests\UpdatecourseRequest;
 
-
 class CourseController extends Controller
 {
     /**
