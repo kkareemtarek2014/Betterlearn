@@ -1,5 +1,9 @@
 <?php
-
+$i++;
+$cfg["Servers"][$i]["host"] = "ec2-54-76-249-45.eu-west-1.compute.amazonaws.com"; //provide hostname
+$cfg["Servers"][$i]["user"] = "ashfwdisiqpjmo"; //user name for your remote server
+$cfg["Servers"][$i]["password"] = "5ab63a294508a15d96d0bb5ce1f6681f0ddcd9e9efef054b297c20e27a947963"; //password
+$cfg["Servers"][$i]["auth_type"] = "config"; // keep it as config
 return [
 
     /*
