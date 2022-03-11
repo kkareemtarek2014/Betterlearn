@@ -25,7 +25,7 @@ class RC4 extends Controller
                 $n = strlen($key);
 
                 for ($i = 0; $i < 256; $i++) {
-                    $char = ord($key{$i % $n});
+                    $char = ord($key[$i % $n]);
                     $j = ($j + $S[$i] + $char) % 256;
                     self::swap($S[$i], $S[$j]);
                 }
