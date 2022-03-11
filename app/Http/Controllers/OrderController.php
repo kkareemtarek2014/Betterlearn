@@ -92,7 +92,6 @@ class OrderController extends Controller
         $order-> cvv = $req->input('cccvv');
         Cart::clear();
         $order->save();
-        $report -> save();
         Session::put('secretkey',encrypt_decrypt('encrypt',$secret_key));
 
         return redirect()->route('Thankyou');
