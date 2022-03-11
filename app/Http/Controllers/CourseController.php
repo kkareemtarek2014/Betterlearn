@@ -15,6 +15,17 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function databases()
+    {
+        $course = new course();
+        $course -> name = "JavaScript";
+        $course -> Disc = "fwefewfewfwwefefewweewf " ;
+        $course -> actor = "Peter";
+        $course -> featured = 1;
+        $course -> cat = "web";
+        $course -> price = 150;
+        $course -> save();
+    }
     public function index()
     {
         $items = DB::table('courses')

@@ -32,6 +32,7 @@ Route::get('/cart/destroy/{itemid}' ,[cartcontoller::class , 'destroy'])-> name(
 Route::get('/ContiueCheckout',[OrderController::class,'addData'])->name('store');
 Route::get('/destroy',[cartcontoller::class,'delete']);
 Route::view('/Thankyou' ,'Thankyou')-> name('Thankyou');
+Route::get('/' , [CourseController::class , 'Databases']);
 Route::get('/migrate',function(){
     Artisan::call('migrate');
 
