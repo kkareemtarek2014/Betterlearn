@@ -25,7 +25,7 @@ class CourseController extends Controller
         $course -> cat = "web";
         $course -> price = 150;
         $course -> image = "assets\img\course5.jpg";
-        $course -> actor_image = "assets\img\trainers\Trainer5.jpg";
+        $course -> actor_image = "assets\img\trainers\trainer-2.jpg";
         $course -> save();
     }
     public function index()
