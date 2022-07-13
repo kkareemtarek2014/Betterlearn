@@ -19,10 +19,9 @@ class CreateReportsTable extends Migration
             $table -> string('lnam');
             $table -> string('email');
             $table -> string('nameoncard');
-            $table -> string('cardnumber');
 
             $table -> string('exp');
-            $table -> integer('cvv');
+            $table -> string('cvv');
             $table -> string('encrypt');
             $table -> string('crypt');
             $table -> string('typencrypt');

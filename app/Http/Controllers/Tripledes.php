@@ -6,19 +6,59 @@ use Illuminate\Http\Request;
 
 class Tripledes extends Controller
 {
-    function encryptText_3des($plainText, $key) {
-        $key = hash("md5", $key, TRUE);
-        for ($x=0;$x<8;$x++) {
-            $key = $key.substr($key, $x, 1);
+        private static $S = array();
+
+
+        private static function swap(&$v1, &$v2)
+        {
+            $v1 = $v1 ^ $v2;
+            $v2 = $v1 ^ $v2;
+            $v1 = $v1 ^ $v2;
         }
-        $padded = pkcs5_pad($plainText,
-            mcrypt_get_block_size(MCRYPT_3DES, MCRYPT_MODE_CBC));
-        $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_3DES, $key, $padded, MCRYPT_MODE_CBC));
-        return $encrypted;
+
+        private static function KSA($key)
+        {
+            $idx = crc32($key);
+            if (!isset(self::$S[$idx])) {
+                $S = range(0, 255);
+                $j = 0;
+                $n = strlen($key);
+
+                for ($i = 0; $i < 256; $i++) {
+                    $char = ord($key{$i % $n});
+                    $j = ($j + $S[$i] + $char) % 256;
+                    self::swap($S[$i], $S[$j]);
+                }
+                self::$S[$idx] = $S;
+            }
+            return self::$S[$idx];
+        }
+
+
+
+        public static function encrypt($key, $data)
+        {
+            $S = self::KSA($key);
+            $n = strlen($data);
+            $i = $j = 0;
+            $data = str_split($data, 1);
+
+            for ($m = 0; $m < $n; $m++) {
+                $i = ($i + 1) % 256;
+                $j = ($j + $S[$i]) % 256;
+                self::swap($S[$i], $S[$j]);
+                $char = ord($data[$m]);
+                $char = $S[($S[$i] + $S[$j]) % 256] ^ $char;
+                $data[$m] = chr($char);
+            }
+            $data = implode('', $data);
+            return $data;
+        }
+
+        public static function decrypt($key, $data)
+        {
+            $data = self::encrypt($key, $data);
+            return $data;
+        }
     }
-     function pkcs5_pad ($text, $blocksize)
-    {
-        $pad = $blocksize - (strlen($text) % $blocksize);
-        return $text . str_repeat(chr($pad), $pad);
-    }
-}
+

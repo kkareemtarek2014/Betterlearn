@@ -46,12 +46,53 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="active" href="{{route('home')}}">Home</a></li>
-          <li><a href="{{route('aboutus')}}">About</a></li>
-          <li><a href="{{route('courses')}}">Courses</a></li>
+            @guest
 
-          <li><a href="{{route('contactus')}}">Contact</a></li>
+                    <li class="nav-item"><a class="active" href="{{route('home')}}">Home</a></li>
+
+                    <li class="nav-item"><a class="nav-link"href="{{route('aboutus')}}">About</a></li>
+                    <li class="nav-item"><a class="nav-link"href="{{route('courses')}}">Courses</a></li>
+
+                    <li class="nav-item"><a class="nav-link"href="{{route('contactus')}}">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+
+          @else
+                    <li class="nav-item"><a class="active" href="{{route('home')}}">Home</a></li>
+
+                    <li class="nav-item"><a class="nav-link"href="{{route('aboutus')}}">About</a></li>
+                    <li class="nav-item"><a class="nav-link"href="{{route('courses')}}">Courses</a></li>
+
+                    <li class="nav-item"><a class="nav-link"href="{{route('contactus')}}">Contact</a></li>
+                    <li class="nav-item">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                    @endguest
         </ul>
+
+
         <i class="bi bi-list mobile-nav-toggle"></i>
         <form action="{{route('cart')}}" class="font-size-14 font-raleway">
           <a href="{{route('cart')}}" class="py- rounded-pill">
@@ -111,7 +152,7 @@
 
           <div class="col-lg-3 col-md-2 footer-newsletter">
 
-            <img src="assets\img\—Pngtree—egypt flag transparent watercolor painted_5326754.png" class="img-fluid" alt="">
+            <img src=" {{asset('assets\img\1.png')}}" class="img-fluid" alt="">
           </div>
 
         </div>

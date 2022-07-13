@@ -40,7 +40,7 @@
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>01111111111</p>
+                <p>01234567890</p>
               </div>
 
             </div>

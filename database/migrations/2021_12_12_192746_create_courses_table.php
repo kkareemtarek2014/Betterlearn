@@ -24,6 +24,8 @@ class CreateCoursesTable extends Migration
             $table->string('cat');
             $table->integer('price');
             $table->timestamps();
+            $table->softDeletes()->nullable();
+
         });
     }
 

@@ -141,10 +141,8 @@
                   <img src="{{$image -> actor_image}}" class="img-fluid" alt="">
                   <span>{{$item -> actor}}</span>
                 </div>
-                <div class="trainer-rank d-flex align-items-center">
-                  <i class="bx bx-user"></i>&nbsp;50
-                  &nbsp;&nbsp;
-                  <i class="bx bx-heart"></i>&nbsp;65
+                <div class="text-center">
+                    <a href = "{{route('cart.add' , ['course_ID' => $item -> id])}}" class="more-btn">AddtoCart <i class="bx bx-chevron-right"></i></a>
                 </div>
               </div>
             </div>

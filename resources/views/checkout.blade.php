@@ -46,8 +46,8 @@
 
               <!--email-->
               <div class="md-form mb-5">
-                <input type="text" name="email" class="form-control" placeholder="youremail@example.com">
-                <label for="email" class="">Email (optional)</label>
+                <input type="text" name="email" class="form-control" placeholder="youremail@example.com" value="{{auth()->user()->email}}"readonly>
+                <label for="email" class="">Email Address</label>
               </div>
 
               <!--address-->
@@ -79,8 +79,6 @@
                 </div>
 
                 <div class="custom-control custom-radio">
-                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="paypal">Paypal</label>
                 </div>
               </div>
               <div class="row">

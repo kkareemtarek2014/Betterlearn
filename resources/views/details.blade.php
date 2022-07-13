@@ -42,7 +42,7 @@
             <p>5.00 pm - 7.00 pm</p>
           </div>
           <div class="course-info d-flex justify-content-between align-items-center center-align">
-            <button type="submit" class="btn btn-danger form-control color-white">Buy Now</button>
+            <a href = "{{route('cart.add' , ['course_ID' => $course -> id])}}"type="submit" class="btn btn-danger form-control color-white">Buy Now</a>
           </div>
           <div class="course-info d-flex justify-content-between align-items-center center-align">
             <a href = "{{route('cart.add' , ['course_ID' => $course -> id])}}" class="btn btn-warning form-control color-white">Add to Cart</a>
